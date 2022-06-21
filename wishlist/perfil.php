@@ -1,23 +1,4 @@
-<?php
-
-include ("frontend/navbar.html");
-
-session_start();
-if (!isset($_SESSION['user_id'])) {
-  echo '<script type="text/javascript">';
-  echo 'alert("Login necessário");';
-  echo 'window.location.href = "login.php";';
-  echo '</script>';
-  exit;
-}
-
-if (isset($_POST['logout'])) {
-  session_destroy();
-  header('Location: login.php');
-}
-
-
-?>
+<!DOCTYPE html>
 <html lang="pt">
 
 <head>
@@ -27,16 +8,35 @@ if (isset($_POST['logout'])) {
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<link rel="apple-touch-icon" sizes="180x180" href="frontend/img/favicon_io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="frontend/img/favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="frontend/img/favicon_io/favicon-16x16.png">
-<link rel="manifest" href="frontend/img/favicon_io/site.webmanifest">
-<link type="text/css" href="frontend/css/style.css" rel="stylesheet" >
-
-
 </head>
 
 <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+          <li>
+            <a class="navbar-brand ms-auto"><img src="img/wishlist.png" width="100" weight="100" alt=""> </a>
+          </li>
+          <a class="nav-link active" aria-current="page" href="mainpage.php">Página Inicial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="form.php">Sua Wishlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="sr.php">Sites Portados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="perfil.php">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active mb-2" aria-current="page" href="login.php">Login</a>
+          </li>
+      </div>
+    </div>
+  </nav>
   <br>
 
   <div class="jumbotron bg-sucess">
@@ -48,81 +48,38 @@ if (isset($_POST['logout'])) {
     </div>
   </div>
 
-  <!--Mostrar dados perfil-->
-
   <div class="container ">
     <div class="row">
       <div class="panel">
-        <img src="frontend/img/1946429.png" alt="" width="100" weight="70">
+        <img src="img/1946429.png" alt="" width="150" weight="78">
         </a>
-        <?php
-        include('lib/conn.php');
-
-        $id = $_SESSION['user_id'];
-        $connection = DB::getInstance();
-        $nomeuser = $connection->prepare("SELECT nome FROM login where id=:id");
-        $nomeuser->BindParam(':id', $id);
-        $nomeuser->execute();
-        $resultado = $nomeuser->fetch(PDO::FETCH_ASSOC);
-
-        echo "<h2>{$resultado['nome']}</h2>";
-
-        $id = $_SESSION['user_id'];
-        $connection = DB::getInstance();
-        $emailuser = $connection->prepare("SELECT email FROM login where id=:id");
-        $emailuser->BindParam(':id', $id);
-        $emailuser->execute();
-        $resultado = $emailuser->fetch(PDO::FETCH_ASSOC);
-
-        echo "<p>{$resultado['email']}</p>";
-
-        ?>
-
+        <h2>Usario dos bons</h2>
+        <p>smth@theEmail.com</p>
       </div>
     </div>
   </div>
 
   <br>
   <br>
-  
-  <!-- mostrar produtos -->
-
-<div class="container-fluid d-flex justify-content-evenly mb-50 mt-5">
-        <div class="row">
-            <div class="card" style="width: 18rem;">
-                <img src="frontend/img/prod.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Produto bla bla bla</h5>
-                    <a href="#" class="btn btn-new mt-1 text-light">Mais detalhes</a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="card" style="width: 18rem;">
-                <img src="frontend/img/prod.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Produto bla bla bla</h5>
-                    <a href="#" class="btn btn-new mt-1 text-light">Mais detalhes</a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="card" style="width: 18rem;">
-                <img src="frontend/img/prod.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Produto bla bla bla</h5>
-                    <a href="#" class="btn btn-new mt-1 text-light">Mais detalhes</a>
-                </div>
-            </div>
-        </div>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        produtos bla bla bla
+      </div>
+      <div class="col">
+        produtos bla bla bla
+      </div>
+      <div class="col">
+        produtos bla bla bla
+      </div>
     </div>
+</body>
+
 
 <footer>
   <div class="text-center p-3 fixed-bottom bg-dark text-light">
-    Created by Pedro Cristal
+    Created by Pedro do narga
   </div>
 </footer>
-
-</body>
 
 </html>
