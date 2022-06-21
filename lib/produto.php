@@ -1,5 +1,4 @@
-<?php
-include_once("bd.php");
+<!--include_once("bd.php");
 
 class produto
 {
@@ -148,4 +147,4 @@ class produto
             $msg = "<div class='erro'>Erro no banco de dados: " . $e->getMessage() . "</div>";
         }
     }
-}
+} -->
