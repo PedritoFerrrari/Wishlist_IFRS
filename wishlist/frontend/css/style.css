@@ -1,0 +1,32 @@
+#saas{
+
+    align-self: center;
+}
+
+.jumbotron{
+
+    text-align: justify;
+
+}
+
+.textointro{
+
+    
+   text-align: justify;
+}
+
+.btn-logout{
+
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    border-color: #A9A9A9;
+
+}
+
+.btn-new {
+
+    color: #8A2BE2;
+    background-color: #8A2BE2;
+
+}
